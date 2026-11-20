@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast Cover Maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="panel controls" aria-label="Cover controls">
+    <h1>Neon Coast <span>Cover Maker</span></h1>
+    <p class="tagline">Your photos, a sunset grade, bold poster lettering — exported as a share-ready PNG.</p>
+
+    <fieldset>
+      <legend>1 · Photos</legend>
+      <p class="hint">Pick up to three photos from your machine. Nothing is uploaded.</p>
+      <div class="photo-row">
+        <label class="file-btn">Photo 1 <input id="file0" type="file" accept="image/*"></label>
+        <label class="file-btn">Photo 2 <input id="file1" type="file" accept="image/*"></label>
+        <label class="file-btn">Photo 3 <input id="file2" type="file" accept="image/*"></label>
+      </div>
+      <div class="photo-row">
+        <button id="sample-pier" type="button" class="ghost">Try sample: pier</button>
+        <button id="sample-boulevard" type="button" class="ghost">Try sample: boulevard</button>
+      </div>
+      <p id="photo-status" class="hint" role="status">No photos yet — load a sample or choose your own.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>2 · Layout &amp; panels</legend>
+      <label>Layout
+        <select id="layout">
+          <option value="strips">Three strips</option>
+          <option value="hero">Hero + two below</option>
+          <option value="split">Tall left + two stacked</option>
+        </select>
+      </label>
+      <label>Panel to adjust
+        <select id="panel">
+          <option value="0">Panel 1</option>
+          <option value="1">Panel 2</option>
+          <option value="2">Panel 3</option>
+        </select>
+      </label>
+      <label>Photo in this panel
+        <select id="panel-photo">
+          <option value="0">Photo 1</option>
+          <option value="1">Photo 2</option>
+          <option value="2">Photo 3</option>
+        </select>
+      </label>
+      <label>Zoom <span class="val" id="zoom-val">100%</span>
+        <input id="zoom" type="range" min="100" max="260" value="100">
+      </label>
+      <label>Position left–right <span class="val" id="panx-val">0</span>
+        <input id="panx" type="range" min="-100" max="100" value="0">
+      </label>
+      <label>Position up–down <span class="val" id="pany-val">0</span>
+        <input id="pany" type="range" min="-100" max="100" value="0">
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>3 · Words &amp; colour</legend>
+      <label>Caption
+        <input id="caption" type="text" maxlength="28" value="Sunset Heist">
+      </label>
+      <label>Tag line
+        <input id="tagline" type="text" maxlength="40" value="NEON COAST · EST. 2026">
+      </label>
+      <label>Colour grade
+        <select id="grade">
+          <option value="sunset">Sunset — orange &amp; pink</option>
+          <option value="neon">Neon — magenta &amp; cyan</option>
+          <option value="dusk">Dusk — violet &amp; teal</option>
+          <option value="gold">Gold hour — amber &amp; rose</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>4 · Export</legend>
+      <label>Post size
+        <select id="size">
+          <option value="1080x1080">Square · 1080 × 1080</option>
+          <option value="1080x1350">Portrait · 1080 × 1350</option>
+          <option value="1920x1080">Wide · 1920 × 1080</option>
+        </select>
+      </label>
+      <button id="export" type="button" class="big">Export PNG</button>
+      <p id="status" class="hint" role="status"></p>
+    </fieldset>
+  </section>
+
+  <section class="preview" aria-label="Live preview">
+    <canvas id="cover" width="1080" height="1080"></canvas>
+    <p class="hint">Live preview — what you see is what the PNG will be.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
